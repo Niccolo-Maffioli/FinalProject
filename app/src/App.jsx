@@ -1,21 +1,28 @@
-import { useMemo } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Mapcard from './components/Mapcard'
+import Login from './pages/login'
+import Register from './pages/register'
+import Locations from './Locations'
+import Location from './Location'
+import Home from './pages/Home'
 
-export default function Home() {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-  });
+export default function App() {
+  return(
+    <>
+      <Navbar />
 
-  if (!isLoaded) return <div>Loading...</div>;
-  return <Map />;
-}
+      <Routes>
 
-function Map() {
-  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
+        <Route path="/" element={<Home />} /> {/* element e path sono prop --> metodo per passare dei dati ai componenti */}
+        <Route path="/locations" element={<Locations />} />
+        <Route path="/location/:id" element={<Location />} />
+        <Route path="/mapcard" element={<Mapcard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-  return (
-    <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
-      <Marker position={center} />
-    </GoogleMap>
-  );
+      </Routes>
+    </>
+  )
 }

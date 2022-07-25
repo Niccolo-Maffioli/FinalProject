@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
-import Navbar from "./components/Navbar";
 
 export default function Locations() {
     const [locations, setLocations] = useState([]);
@@ -20,6 +19,9 @@ export default function Locations() {
 
     return (
         <div className="flex flex-col items-start border-white border-solid border-b-2">
+            <div className="form-control w-full max-w-xs p-5">
+                <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </div>
             {/* <Navbar /> */}
             {locations.map(location => 
                 <Card key={location.id} location={location}/>
