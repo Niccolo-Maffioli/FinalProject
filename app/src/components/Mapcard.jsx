@@ -2,7 +2,7 @@ import React from 'react'
 
 const Mapcard = () => {
   return (
-    <div className='card w-70 bg-base-100 shadow-xl m-5 h-auto'>
+    <div className='mapcard card w-70 bg-base-100 shadow-xl m-5 h-auto'>
         <figure figure='true'><img src='https://placeimg.com/400/225/arch' alt='Shoes' /></figure>
         <div className='card-body'>
             <h2 className='card-title'>Shoes!</h2>
